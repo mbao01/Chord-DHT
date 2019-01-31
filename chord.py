@@ -1,4 +1,6 @@
 #!/bin/python3
+# CODE not tested !!!!!!!!!!!!!!!!!!!!!!
+# overall login is prepared : check the remoteNode file also
 import sys
 import json
 import socket
@@ -8,6 +10,7 @@ from threading import Thread, Lock
 from config import NBITS,SIZE,SLEEP_TIME
 from remoteNode import RemoteNode
 
+# This is a wrapper function
 def LoopAndWait(func):
 	def inner(self, *args, **kwargs):
 		while 1:
@@ -15,13 +18,6 @@ def LoopAndWait(func):
 			ret = func(self, *args, **kwargs)
 			return ret
 	return inner
-
-def staticVars(**kwargs):
-    def decorate(func):
-		for k in kwargs:
-			setattr(func, k, kwargs[k])
-		return func	
-	return decorate
 
 class BackGroundProcess:
 	def __init__(self, obj, method):
@@ -104,51 +100,20 @@ class Node:
 	def id(self, offset = 0):
 		return (self.address_.__hash__() + offset) % SIZE
 
-	def successor(self):
-		# We make sure to return an existing successor, there `might`
-		# be redundance between finger_[0] and successors_[0], but
-		# it doesn't harm
-		for remote in [self.finger_[0]] + self.successors_:
-			if remote.ping():
-				self.finger_[0] = remote
-				return remote
-		print "No successor available, aborting"
-		self.shutdown_ = True
-		sys.exit(-1)
-
-	def predecessor(self):
-		return self.predecessor_
-
-
-	def find_successor(self, id):
-		# The successor of a key can be us iff
-		# - we have a pred(n)
-		# - id is in (pred(n), n]
+	def findSuccessor(self, id):
+		# check paper for implementation
 		self.log("find_successor")
-		if self.predecessor() and \
-		   inrange(id, self.predecessor().id(1), self.id(1)):
+		if inrange(id, self.predecessor().id(1), self.id(1)): # TODO check the offsets
 			return self
 		node = self.find_predecessor(id)
 		return node.successor()
 
-	#@retry_on_socket_error(FIND_PREDECESSOR_RET)
-	def find_predecessor(self, id):
-		self.log("find_predecessor")
-		node = self
-		# If we are alone in the ring, we are the pred(id)
-		if node.successor().id() == node.id():
-			return node
-		while not inrange(id, node.id(1), node.successor().id(1)):
-			node = node.closest_preceding_finger(id)
-		return node
-
-	def closest_preceding_finger(self, id):
-		# first fingers in decreasing distance, then successors in
-		# increasing distance.
+	def closestPrecedingNode(self, id):
+		# check paper for implementation
 		self.log("closest_preceding_finger")
-		for remote in reversed(self.successors_ + self.finger_):
-			if remote != None and inrange(remote.id(), self.id(1), id) and remote.ping():
-				return remote
+		for idx in reversed(range(NBITS)):
+			if self._finger[idx] != None and inrange(self._finger[idx].id(1), self.id(1), id)
+				return self._finger[idx]
 		return self
 			
 	def run(self):

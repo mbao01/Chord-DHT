@@ -52,11 +52,13 @@ class RemoteNode(object):
 		# and we might have again, so I'm not getting rid of this yet
 		return read_from_socket(self.socket_)
 
+	# This function is just to check whether is this remote machine is up or not
 	def ping(self):
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			s.connect((self.address_.ip, self.address_.port))
-			s.sendall("\r\n")
+			s.sendall("\r\n") 	# this a dummy string:
+								# we have used this all over the place
 			s.close()
 			return True
 		except socket.error:
@@ -64,8 +66,8 @@ class RemoteNode(object):
 
 
 	@requires_connection
-	def get_successors(self):
-		self.send('get_successors')
+	def getSuccessors(self):
+		self.send('getSuccessors')
 
 		response = self.recv()
 		# if our next guy doesn't have successors, return empty list
