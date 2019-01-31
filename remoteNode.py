@@ -7,13 +7,22 @@ import time
 from threading import Thread, Lock
 from config import NBITS,SIZE
 
+def requires_connection(func):
+	def inner(self, *args, **kwargs):
+		self.mutex_.acquire()
+		self.open_connection()
+		ret = func(self, *args, **kwargs)
+		self.close_connection()
+		self.mutex_.release()
+		return ret
+	return inner
 # This class will help to invoke remote prodedure calls
 # One remoteNode will simulate one remote node
 # RemoteObject will call the remote machine/process usnig socker -invoke 
 # someting on actual remote pc
 # get reply and give it back to us (local machine) --  simulating RPC
 class RemoteNode(object):
-	def __init__(self, remote_address):
+	def __init__(self, remote_address = None):
 		self.address_ = remote_address
         # many node can create an RemoteNode with same IP,PORT
         # to safegurd the socket  open connectiona/send/close connection Ops
