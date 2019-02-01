@@ -60,7 +60,7 @@ class Node(object):
 		for key in self._threads:
 			self._threads[key].start()
 
-		self.log(self._address," started")	
+		self.log(self._address.__str__() + " started")	
 
 	# fixes the successor and predecessor 
 	def stabilize(self):
