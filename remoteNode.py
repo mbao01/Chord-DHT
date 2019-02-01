@@ -4,16 +4,17 @@ import json
 import socket
 import random
 import time
-from threading import Thread, Lock
+
+import threading
 from config import NBITS,SIZE
 
 def requires_connection(func):
 	def inner(self, *args, **kwargs):
-		self.mutex_.acquire()
+		self._mutex.acquire()
 		self.open_connection()
 		ret = func(self, *args, **kwargs)
 		self.close_connection()
-		self.mutex_.release()
+		self._mutex.release()
 		return ret
 	return inner
 # This class will help to invoke remote prodedure calls
@@ -26,11 +27,11 @@ class RemoteNode(object):
 		self._address = remoteAddress
 		# many node can create an RemoteNode with same IP,PORT
 		# to safegurd the socket  open connectiona/send/close connection Ops
-	    self._mutex = threading.Lock()
+		self._mutex = threading.Lock()
 
 	def open_connection(self):
 		self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self._socket.connect((self.address_.ip, self.address_.port))
+		self._socket.connect((self._address.ip, self._address.port))
 
 	def close_connection(self):
 		self._socket.close()
@@ -40,14 +41,14 @@ class RemoteNode(object):
 		return "Remote %s" % self._address # this _address object has already 
 
 	def id(self, offset = 0):
-		return (self.address_.__hash__() + offset) % SIZE
+		return (self._address.__hash__() + offset) % SIZE
 
 	def send(self, msg):
 		self.socket_.sendall(msg + "\r\n")
 		self.last_msg_send_ = msg
 
 	def recv(self):
-		# print "send: %s <%s>" % (msg, self.address_)
+		# print "send: %s <%s>" % (msg, self._address)
 		# we use to have more complicated logic here
 		# and we might have again, so I'm not getting rid of this yet
 		return read_from_socket(self.socket_)
@@ -56,7 +57,7 @@ class RemoteNode(object):
 	def ping(self):
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-			s.connect((self.address_.ip, self.address_.port))
+			s.connect((self._address.ip, self._address.port))
 			s.sendall("\r\n") 	# this a dummy string:
 								# we have used this all over the place
 			s.close()
@@ -101,4 +102,4 @@ class RemoteNode(object):
 
 	@requires_connection
 	def notify(self, node):
-		self.send('notify %s %s' % (node.address_.ip, node.address_.port))
+		self.send('notify %s %s' % (node._address.ip, node._address.port))

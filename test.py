@@ -7,6 +7,9 @@ import socket
 import random
 import time
 import threading
+from remoteNode import RemoteNode
+from address import Address
+
 class BackGroundProcess(threading.Thread):
 	def __init__(self, obj, method):
 		threading.Thread.__init__(self)
@@ -41,5 +44,6 @@ class Node:
 if __name__ == "__main__":
 	local = Node()
 	local.start()
-	#local.join()
-	print("dsdsd")
+	local.join()
+	x = Address("127.0.0.1","1111")
+	print(x)

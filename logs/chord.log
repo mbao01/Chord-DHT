@@ -1,0 +1,27 @@
+0 : ["127.0.0.1", 3000] joined.
+0 : fixFingers
+0 : find_successor
+0 : stabilize
+0 : run loop...
+15 : ["127.0.0.1", 3000] joined.
+15 : stabilize
+15 : run loop...
+15 : fixFingers
+15 : notify
+15 : find_successor
+15 : stabilize
+15 : notify
+15 : stabilize
+15 : notify
+15 : stabilize
+15 : notify
+15 : stabilize
+15 : notify
+69 : ["127.0.0.1", 3000] joined.
+69 : fixFingers
+69 : stabilize
+69 : run loop...
+69 : find_successor
+69 : notify
+69 : stabilize
+69 : notify

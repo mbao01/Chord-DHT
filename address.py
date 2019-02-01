@@ -11,10 +11,8 @@ def inrange(c, a, b):
 		return a <= c and c < b
 	return a <= c or c < b
 
-class Address(object):
+class Address:
 	def __init__(self,*args):
-		for x in args:
-			print(x)
 		self.ip = args[0]
 		self.port = int(args[1])
 
