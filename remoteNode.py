@@ -7,6 +7,7 @@ import time
 
 import threading
 from config import NBITS,SIZE
+from network import *
 
 def requires_connection(func):
 	def inner(self, *args, **kwargs):

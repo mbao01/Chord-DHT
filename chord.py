@@ -7,7 +7,6 @@ import socket
 import random
 import time
 import threading
-
 from address import *
 from network import *
 from remoteNode import *
@@ -31,7 +30,7 @@ class Node(object):
 		self._successor = self
 		self._predecessor = None   
 		for idx in range(NBITS):
-			self._finger[0] = None
+			self._finger[idx] = None
 		self.join(RemoteAddress)
     
 	def join(self,RemoteAddress = None):
@@ -56,7 +55,7 @@ class Node(object):
 		self._threads['run'] = BackGroundProcess(self, 'run')
 		self._threads['fixFingers'] = BackGroundProcess(self, 'fixFingers')
 		self._threads['stabilize'] = BackGroundProcess(self, 'stabilize')
-
+		self._threads['checkPredecessor'] = BackGroundProcess(self, 'checkPredecessor')
 		for key in self._threads:
 			self._threads[key].start()
 
@@ -81,8 +80,9 @@ class Node(object):
 	# fixes predecesor 
 	def notify(self, remote):
 		self.log("notify")
-		if self.predecessor() == None or (inrange(remote.id(), self.predecessor().id(1), self.id())):
-			self._predecessor = remote
+		if self.predecessor() != None:
+			if (inrange(remote.id(), self.predecessor().id(1), self.id())):
+				self._predecessor = remote
 
 	def predecessor(self):
 		return self._predecessor
@@ -92,15 +92,20 @@ class Node(object):
 		while system_running:
 			self.log("fixFingers")
 			nxt = nxt + 1
-			self._finger[nxt] = self.findSuccessor(self.id(1<<(nxt - 1)))
+			if nxt > NBITS:
+				nxt = 1
+			self._finger[nxt - 1] = self.findSuccessor(self.id(1<<(nxt - 1)))
+			
 			time.sleep(1)
 
-	def checkPredecessors(self):
+	def checkPredecessor(self):
 		while system_running:
-			self.log("checkPredecessors")
+			self.log("checkPredecessor")
 			# check the predecessor is up or not
-			if self._predecessor.ping() == False:
-				self._predecessor = None
+			if self.predecessor() != None:
+				if self.predecessor().ping() == False:
+					self._predecessor = None
+			time.sleep(1)
 
 
 	def id(self, offset = 0):
@@ -108,18 +113,20 @@ class Node(object):
 
 	def findSuccessor(self, id):
 		# check paper for implementation
-		self.log("find_successor")
-		if inrange(id, self.predecessor().id(1), self.id(1)): # TODO check the offsets
-			return self
+		self.log("findSuccessor")
+ 
 		remote = self.closestPrecedingNode(id)
-		return remote.findSuccessor(id)
-
+		if self._address.__hash__() != remote._address.__hash__():
+			return remote.findSuccessor(id)
+		else:
+			return self
 	def closestPrecedingNode(self, id):
 		# check paper for implementation
 		self.log("closest_preceding_finger")
 		for idx in reversed(range(NBITS)):
 			if self._finger[idx] != None and inrange(self._finger[idx].id(1), self.id(1), id):
 				return self._finger[idx]
+		
 		return self
 			
 	def run(self):
@@ -150,9 +157,12 @@ class Node(object):
 				if self.predecessor_ != None:
 					predecessor = self.predecessor_
 					result = json.dumps((predecessor._address.ip, predecessor._address.port))
-			if command == 'find_successor':
-				successor = self.find_successor(int(request))
+			
+			if command == 'findSuccessor':
+				successor = self.findSuccessor(int(request))
 				result = json.dumps((successor._address.ip, successor._address.port))
+			
+
 			if command == 'closest_preceding_finger':
 				closest = self.closest_preceding_finger(int(request))
 				result = json.dumps((closest._address.ip, closest._address.port))
