@@ -80,10 +80,11 @@ class Node(object):
 	# fixes predecesor 
 	def notify(self, remote):
 		self.log("notify")
-		if self.predecessor() != None:
-			if (inrange(remote.id(), self.predecessor().id(1), self.id())):
-				self._predecessor = remote
-
+		if self.predecessor() == None or (inrange(remote.id(), self.predecessor().id(1), self.id())):
+			self._predecessor = remote
+		print("\n\n")
+		print(self._predecessor._address)
+		print("\n\n")
 	def predecessor(self):
 		return self._predecessor
 
@@ -95,16 +96,23 @@ class Node(object):
 			if nxt > NBITS:
 				nxt = 1
 			self._finger[nxt - 1] = self.findSuccessor(self.id(1<<(nxt - 1)))
-			
+			self.printFingerable()
 			time.sleep(1)
-
+	def printFingerable(self):
+		for idx in range(NBITS):
+			if self._finger[idx] != None:
+				print(self._finger[idx]._address)
+			else:
+				print("None")
+		print("\n\n")
 	def checkPredecessor(self):
 		while system_running:
 			self.log("checkPredecessor")
 			# check the predecessor is up or not
 			if self.predecessor() != None:
-				if self.predecessor().ping() == False:
-					self._predecessor = None
+				if self.predecessor()._address.__hash__() != self._address.__hash__():
+					if self.predecessor().ping() == False:
+						self._predecessor = None
 			time.sleep(1)
 
 
