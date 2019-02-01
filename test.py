@@ -10,6 +10,13 @@ import threading
 from remoteNode import RemoteNode
 from address import Address
 
+import hashlib
+
+def hash(str):
+	result = hashlib.md5(str.encode())
+	x = int(result.hexdigest(),16)
+	return x%pow(2,32)
+	
 class BackGroundProcess(threading.Thread):
 	def __init__(self, obj, method):
 		threading.Thread.__init__(self)
