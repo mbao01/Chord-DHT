@@ -1,14 +1,45 @@
-class _wrapper:
-    def __init__(self, func):
-        print("1")
-        func()
+#!/bin/python3
+# CODE not tested !!!!!!!!!!!!!!!!!!!!!!
+# overall login is prepared : check the remoteNode file also
+import sys
+import json
+import socket
+import random
+import time
+import threading
+class BackGroundProcess(threading.Thread):
+	def __init__(self, obj, method):
+		threading.Thread.__init__(self)
+		self.obj_ = obj
+		self.method_ = method
 
-    def __call__(self):
-        print("2")
+	def run(self):
+		getattr(self.obj_, self.method_)()
 
-@_wrapper
-def aFunction():
-    return 1
+class Node:
+	def __init__(self):
+		self._threads = {}
 
+	def start(self):
+		self._threads['someOther1'] = BackGroundProcess(self, 'someOther1')
+		self._threads['someOther2'] = BackGroundProcess(self, 'someOther2')
+		for key in self._threads:
+			self._threads[key].start()
 
-aFunction()
+	def join(self):
+		for key in self._threads:
+			self._threads[key].join()
+
+	def someOther1(self):
+		i = 0
+		while i < 10:
+			print("Hello1")
+			i = i  + 1
+	def someOther2(self):
+		print("Hello2")
+
+if __name__ == "__main__":
+	local = Node()
+	local.start()
+	#local.join()
+	print("dsdsd")

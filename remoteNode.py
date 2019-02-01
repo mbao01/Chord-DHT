@@ -22,22 +22,22 @@ def requires_connection(func):
 # someting on actual remote pc
 # get reply and give it back to us (local machine) --  simulating RPC
 class RemoteNode(object):
-	def __init__(self, remote_address = None):
-		self.address_ = remote_address
-        # many node can create an RemoteNode with same IP,PORT
-        # to safegurd the socket  open connectiona/send/close connection Ops
-	    self.mutex_ = threading.Lock()
+	def __init__(self, remoteAddress = None):
+		self._address = remoteAddress
+		# many node can create an RemoteNode with same IP,PORT
+		# to safegurd the socket  open connectiona/send/close connection Ops
+	    self._mutex = threading.Lock()
 
 	def open_connection(self):
-		self.socket_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self.socket_.connect((self.address_.ip, self.address_.port))
+		self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		self._socket.connect((self.address_.ip, self.address_.port))
 
 	def close_connection(self):
-		self.socket_.close()
-		self.socket_ = None
+		self._socket.close()
+		self._socket = None
 
 	def __str__(self):
-		return "Remote %s" % self.address_
+		return "Remote %s" % self._address # this _address object has already 
 
 	def id(self, offset = 0):
 		return (self.address_.__hash__() + offset) % SIZE
@@ -45,9 +45,9 @@ class RemoteNode(object):
 	def send(self, msg):
 		self.socket_.sendall(msg + "\r\n")
 		self.last_msg_send_ = msg
-		# print "send: %s <%s>" % (msg, self.address_)
 
 	def recv(self):
+		# print "send: %s <%s>" % (msg, self.address_)
 		# we use to have more complicated logic here
 		# and we might have again, so I'm not getting rid of this yet
 		return read_from_socket(self.socket_)
@@ -64,44 +64,36 @@ class RemoteNode(object):
 		except socket.error:
 			return False
 
-
 	@requires_connection
-	def getSuccessors(self):
-		self.send('getSuccessors')
-
+	def findSuccessor(self,id):
+		self.send('findSuccessor %s' % id)
 		response = self.recv()
-		# if our next guy doesn't have successors, return empty list
-		if response == "":
-			return []
 		response = json.loads(response)
-		return map(lambda address: Remote(Address(address[0], address[1])) ,response)
+		return Remote(Address(response[0], response[1]))
 
 	@requires_connection
-	def successor(self):
+	def successor(self): # this is not findSuccessor
 		self.send('get_successor')
-
+		response = self.recv()
 		response = json.loads(self.recv())
 		return Remote(Address(response[0], response[1]))
 
 	@requires_connection
-	def predecessor(self):
-		self.send('get_predecessor')
-
+	def predecessor(self): # this is not findPredecessor
+		self.send('predecessor')
 		response = self.recv()
-		if response == "":
-			return None
 		response = json.loads(response)
 		return Remote(Address(response[0], response[1]))
 
 	@requires_connection
-	def find_successor(self, id):
-		self.send('find_successor %s' % id)
+	def findSuccessor(self, id):
+		self.send('findSuccessor %s' % id)
 
 		response = json.loads(self.recv())
 		return Remote(Address(response[0], response[1]))
 
 	@requires_connection
-	def closest_preceding_finger(self, id):
+	def closest_precedingFinger(self, id):
 		self.send('closest_preceding_finger %s' % id)
 
 		response = json.loads(self.recv())
