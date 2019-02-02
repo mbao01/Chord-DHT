@@ -7,15 +7,15 @@ import socket
 import random
 import time
 import threading
-from remoteNode import RemoteNode
-from address import Address
 
+from remoteNode import *
+from address import *
 import hashlib
 
-def hash(str):
+def hash_(str):
 	result = hashlib.md5(str.encode())
 	x = int(result.hexdigest(),16)
-	return x%pow(2,32)
+	return x%pow(2,10)
 	
 class BackGroundProcess(threading.Thread):
 	def __init__(self, obj, method):
@@ -42,7 +42,7 @@ class Node:
 
 	def someOther1(self):
 		i = 0
-		while i < 10:
+		while i < 1:
 			print("Hello1")
 			i = i  + 1
 	def someOther2(self):
@@ -52,5 +52,25 @@ if __name__ == "__main__":
 	local = Node()
 	local.start()
 	local.join()
-	x = Address("127.0.0.1","1111")
-	print(x)
+	print("\n\n")
+
+	a = Address("127.0.0.1","1111")
+	b = Address("127.0.0.1","1115")
+	c = Address("127.0.0.1","1200")
+	
+	
+
+	aa = RemoteNode(a)
+	bb = RemoteNode(b)
+	cc = RemoteNode(c)
+
+	print(aa.getIdentifier(),bb.getIdentifier(),cc.getIdentifier())
+	
+
+	print(inrange(100,1024,200))
+
+	print(aa)
+	print(bb)
+	print(cc)
+
+	print("xx : ",1," dlsknd",3)

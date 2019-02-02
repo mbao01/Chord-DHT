@@ -1,7 +1,7 @@
-NBITS 				= 8
+NBITS 				= 10
 
 
-SIZE 				= 1<<NBITS
+SIZE 				= (1<<NBITS)
 
 
 

@@ -6,8 +6,9 @@ import random
 import time
 
 import threading
-from config import NBITS,SIZE
+from config import *
 from network import *
+from address import *
 
 def requires_connection(func):
 	def inner(self, *args, **kwargs):
@@ -41,25 +42,27 @@ class RemoteNode(object):
 	def __str__(self):
 		return "Remote %s" % self._address # this _address object has already 
 
-	def id(self, offset = 0):
+	def getIdentifier(self, offset = 0):
 		return (self._address.__hash__() + offset) % SIZE
 
 	def send(self, msg):
-		self.socket_.sendall(msg + "\r\n")
+		#self._socket.sendall(msg + "\r\n")
+		send_to_socket(self._socket,msg)
 		self.last_msg_send_ = msg
 
 	def recv(self):
 		# print "send: %s <%s>" % (msg, self._address)
 		# we use to have more complicated logic here
 		# and we might have again, so I'm not getting rid of this yet
-		return read_from_socket(self.socket_)
+		return read_from_socket(self._socket)
 
 	# This function is just to check whether is this remote machine is up or not
 	def ping(self):
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			s.connect((self._address.ip, self._address.port))
-			s.sendall("\r\n") 	# this a dummy string:
+			st = "\r\n"
+			s.sendall(st.encode('utf-8')) 	# this a dummy string:
 								# we have used this all over the place
 			s.close()
 			return True
@@ -67,40 +70,54 @@ class RemoteNode(object):
 			return False
 
 	@requires_connection
-	def findSuccessor(self,id):
+	def findSuccessor(self,id): # this is not successor # ID is there
+		print("findSuccessor called")
 		self.send('findSuccessor %s' % id)
 		response = self.recv()
 		response = json.loads(response)
-		return Remote(Address(response[0], response[1]))
+		addr = Address(response[0], response[1])
+		print("findSuccessor reply arrived : ", addr.__str__())
+		time.sleep(SLEEP_TIME)
+		return RemoteNode(addr)
 
 	@requires_connection
 	def successor(self): # this is not findSuccessor
-		self.send('get_successor')
+		print("successor called")
+		self.send('successor')
 		response = self.recv()
 		response = json.loads(self.recv())
-		return Remote(Address(response[0], response[1]))
+		addr = Address(response[0], response[1])
+		print("successor reply arrived : ", addr.__str__())
+		time.sleep(SLEEP_TIME)
+		return RemoteNode(addr)
+
 
 	@requires_connection
 	def predecessor(self): # this is not findPredecessor
-		self.send('predecessor')
+		
+		print("predecessor called")
+		self.send('getPredecessor')
 		response = self.recv()
 		response = json.loads(response)
-		return Remote(Address(response[0], response[1]))
+		addr = Address(response[0], response[1])
+		print("predecessor reply arrived : ", addr.__str__())
+		time.sleep(SLEEP_TIME)
+		return RemoteNode(addr)
+
 
 	@requires_connection
-	def findSuccessor(self, id):
-		self.send('findSuccessor %s' % id)
-
-		response = json.loads(self.recv())
-		return Remote(Address(response[0], response[1]))
-
-	@requires_connection
-	def closest_precedingFinger(self, id):
-		self.send('closest_preceding_finger %s' % id)
-
-		response = json.loads(self.recv())
-		return Remote(Address(response[0], response[1]))
+	def closestPrecedingNode(self, id):
+		print("closestPrecedingNode called")
+		self.send('closestPrecedingNode %s' % id)
+		response = self.recv()
+		response = json.loads(response)
+		addr = Address(response[0], response[1])
+		print("closestPrecedingNode reply arrived : ", addr.__str__())
+		time.sleep(SLEEP_TIME)
+		return RemoteNode(addr)
 
 	@requires_connection
 	def notify(self, node):
+		print("notify called")
+		time.sleep(SLEEP_TIME)
 		self.send('notify %s %s' % (node._address.ip, node._address.port))
