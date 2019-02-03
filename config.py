@@ -1,4 +1,4 @@
-NBITS 				= 10
+NBITS 				= 32
 
 
 SIZE 				= (1<<NBITS)

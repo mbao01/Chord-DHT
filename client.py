@@ -40,7 +40,10 @@ class ClientNode(object):
 	def printPromt(self):
 		print("Enter 1 to lookup")
 		print("Enter 2 to insert")
-		print("Enter 3 to Exit")
+		print("Enter 3 to load dictionary")
+		print("Enter 4 to display finger table")
+		print("Enter 5 to Exit")
+
 
 	def send(self, msg):
 		#self._socket.sendall(msg + "\r\n")
@@ -56,6 +59,11 @@ class ClientNode(object):
 	@requires_connection
 	def lookUpKey(self,key):
 		self.send('lookUpKey '+key)
+		return self.recv()
+
+	@requires_connection
+	def queryFingerTable(self):
+		self.send("getFingerTable")
 		return self.recv()
 
 	@requires_connection
@@ -86,8 +94,26 @@ class ClientNode(object):
 
 				print("Key : ",key," :: Value : ",value," inserted")
 				
-			if choice =='3':
-				break
+			if choice=='3':
+				f = open("dictionary.txt")
+				a = f.readline()
+
+				while a:
+					a = a.split()
+					print(a)
+					key = a[0]
+					value = " ".join(a[1:])
+					self.insertKeyVal(key,value)
+					print("INSERTED :: key:"+key+"|| value:"+value)
+					a = f.readline()
+
+			if choice == '4':
+				retval = self.queryFingerTable()
+				print(retval)
+
+
+			if choice =='5':
+				exit(0)
 
 
 if __name__ == "__main__":
