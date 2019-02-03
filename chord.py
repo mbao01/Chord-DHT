@@ -65,14 +65,12 @@ class Node(object):
 	# fixes the successor and predecessor 
 	def stabilize(self):
 		while system_running:
-			#print(str(self.getIdentifier()) + " :: " + "stabilize called")
-			
 			if self.predecessor() != None:
-				print(str(self.getIdentifier()) + " :: " + "predecessor addr : ", self.predecessor().__str__(),"predecessor id : ",self.predecessor().getIdentifier())
+				print(str(self.getIdentifier()) + " :: " + "predecessor : ", self.predecessor().__str__(),"id : ",self.predecessor().getIdentifier())
 			if self.successor() != None:
-				print(str(self.getIdentifier()) + " :: " + "successor addr : ", self.successor().__str__(),"successor id : ",self.successor().getIdentifier())
+				print(str(self.getIdentifier()) + " :: " + "successor : ", self.successor().__str__(),"id : ",self.successor().getIdentifier())
 			
-			print("\n\n\n")
+			print("\n")
 			self.log("stabilize")
 			suc = self.successor()
 
@@ -127,7 +125,7 @@ class Node(object):
 	def printFingerable(self):
 		for idx in range(NBITS):
 			if self._finger[idx] != None:
-				print(str(self.getIdentifier()) + " :: " + self._finger[idx]._address.__str__() +" : "+ str(self._finger[idx].getIdentifier()) )
+				print(str(self.getIdentifier()) + " :: [" + self._finger[idx]._address.__str__() +" : "+ str(self._finger[idx].getIdentifier()) + "]")
 			else:
 				print("None")
 		print("\n\n")
@@ -184,72 +182,56 @@ class Node(object):
 			except socket.error:
 				print("accept failed")
 
-			request = read_from_socket(conn)
+			request = read_from_socket(conn) # it might receive ping request 
+
+			if request:
 
 
-			#print("Request ",request)
-			#print(addr[0],addr[1])
+				msg = request.split()
 
-			msg = request.split()
+				command = msg[0]
+				key = msg[0]
+				value = " ".join(msg[2:])
+				# we take the command out
+				request = request[len(command) + 1:]
 
-			#print("Command ",command)
-			command = msg[0]
-			key = msg[0]
-			value = " ".join(msg[2:])
-			# we take the command out
-			request = request[len(command) + 1:]
+				# defaul : "" = not respond anything
+				result = json.dumps("")
 
-			# defaul : "" = not respond anything
-			result = json.dumps("")
+				if command == 'INSERT':
+					print(request)
+					print("PERFORM INSERT")
+					result = "INSERTED"
 
-			if command == 'INSERT':
-				print(request)
-				print("PERFORM INSERT")
-				result = "INSERTED"
+				if command == 'LOOKUP':
+					print(request)
+					print("PERFORM LOOKUP")
+					# if found return value else NOT FOUND
+					result = "NOT FOUND"
 
-			if command == 'LOOKUP':
-				print(request)
-				print("PERFORM LOOKUP")
-				# if found return value else NOT FOUND
-				result = "NOT FOUND"
+				if command == 'successor':
+					successor = self.successor()
+					result = json.dumps((successor._address.ip, successor._address.port))
+				
+				if command == 'getPredecessor':
+					if self._predecessor != None:
+						predecessor = self.predecessor()
+						result = json.dumps((predecessor._address.ip, predecessor._address.port))
+				
+				if command == 'findSuccessor':
+					successor = self.findSuccessor(int(request))
+					result = json.dumps((successor._address.ip, successor._address.port))
+				
+				if command == 'closestPrecedingNode':
+					closest = self.closestPrecedingNode(int(request))
+					result = json.dumps((closest._address.ip, closest._address.port))
+				
+				if command == 'notify':
+					npredecessor = Address(request.split(' ')[0], int(request.split(' ')[1]))
+					self.notify(RemoteNode(npredecessor))
 
-			if command == 'successor':
-				#time.sleep(SLEEP_TIME)
-				successor = self.successor()
-				result = json.dumps((successor._address.ip, successor._address.port))
-			
-			if command == 'getPredecessor':
-				#print("getPredecessor requset called")
-				#time.sleep(SLEEP_TIME)
-				if self._predecessor != None:
-					predecessor = self.predecessor()
-					result = json.dumps((predecessor._address.ip, predecessor._address.port))
-			
-			if command == 'findSuccessor':
-				#print("findSuccessor requset called")
-				#time.sleep(SLEEP_TIME)
-				successor = self.findSuccessor(int(request))
-				result = json.dumps((successor._address.ip, successor._address.port))
-			
-			if command == 'closestPrecedingNode':
-				#print("closestPrecedingNode requset called")
-				#time.sleep(SLEEP_TIME)
-				closest = self.closestPrecedingNode(int(request))
-				result = json.dumps((closest._address.ip, closest._address.port))
-			
-			if command == 'notify':
-				#print("notify requset called")
-				#time.sleep(SLEEP_TIME)
-				npredecessor = Address(request.split(' ')[0], int(request.split(' ')[1]))
-				self.notify(RemoteNode(npredecessor))
 
-			# or it could be a user specified operation
-			# for t in self.command_:
-			# 	if command == t[0]:
-			# 		result = t[1](request)
-			#print(type(result))
-			#print("result : ",result)
-			send_to_socket(conn, result)
+				send_to_socket(conn, result)
 
 
 
