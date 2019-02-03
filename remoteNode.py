@@ -71,53 +71,53 @@ class RemoteNode(object):
 
 	@requires_connection
 	def findSuccessor(self,id): # this is not successor # ID is there
-		print("findSuccessor called")
+		#print("findSuccessor called")
 		self.send('findSuccessor %s' % id)
 		response = self.recv()
 		response = json.loads(response)
 		addr = Address(response[0], response[1])
-		print("findSuccessor reply arrived : ", addr.__str__())
-		time.sleep(SLEEP_TIME)
+		#print("findSuccessor reply arrived : ", addr.__str__())
+		#time.sleep(SLEEP_TIME)
 		return RemoteNode(addr)
 
 	@requires_connection
 	def successor(self): # this is not findSuccessor
-		print("successor called")
+		#print("successor called")
 		self.send('successor')
 		response = self.recv()
 		response = json.loads(self.recv())
 		addr = Address(response[0], response[1])
-		print("successor reply arrived : ", addr.__str__())
-		time.sleep(SLEEP_TIME)
+		#print("successor reply arrived : ", addr.__str__())
+		#time.sleep(SLEEP_TIME)
 		return RemoteNode(addr)
 
 
 	@requires_connection
 	def predecessor(self): # this is not findPredecessor
 		
-		print("predecessor called")
+		#print("predecessor called")
 		self.send('getPredecessor')
 		response = self.recv()
 		response = json.loads(response)
 		addr = Address(response[0], response[1])
-		print("predecessor reply arrived : ", addr.__str__())
-		time.sleep(SLEEP_TIME)
+		#print("predecessor reply arrived : ", addr.__str__())
+		#time.sleep(SLEEP_TIME)
 		return RemoteNode(addr)
 
 
 	@requires_connection
 	def closestPrecedingNode(self, id):
-		print("closestPrecedingNode called")
+		#print("closestPrecedingNode called")
 		self.send('closestPrecedingNode %s' % id)
 		response = self.recv()
 		response = json.loads(response)
 		addr = Address(response[0], response[1])
-		print("closestPrecedingNode reply arrived : ", addr.__str__())
-		time.sleep(SLEEP_TIME)
+		#print("closestPrecedingNode reply arrived : ", addr.__str__())
+		#time.sleep(SLEEP_TIME)
 		return RemoteNode(addr)
 
 	@requires_connection
 	def notify(self, node):
-		print("notify called")
-		time.sleep(SLEEP_TIME)
+		#print("notify called")
+		#time.sleep(SLEEP_TIME)
 		self.send('notify %s %s' % (node._address.ip, node._address.port))
