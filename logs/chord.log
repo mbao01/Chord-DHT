@@ -35902,3 +35902,1186 @@
 410 : fixFingers
 410 : findSuccessor
 410 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] started
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+410 : ["127.0.0.1", 12345] joined.
+410 : fixFingers
+410 : run loop...
+410 : findSuccessor
+410 : stabilize
+410 : ["127.0.0.1", 12345] started
+410 : checkPredecessor
+410 : closestPrecedingNode
+410 : notify
+410 : checkPredecessor
+410 : fixFingers
+410 : stabilize
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : notify
+410 : checkPredecessor
+410 : fixFingers
+410 : stabilize
+410 : findSuccessor
+410 : notify
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : notify
+410 : checkPredecessor
+410 : stabilize
+410 : fixFingers
+410 : notify
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : notify
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : notify
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : notify
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : notify
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+410 : checkPredecessor
+410 : stabilize
+410 : notify
+410 : fixFingers
+410 : findSuccessor
+410 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : findSuccessor
+51 : run loop...
+51 : stabilize
+51 : closestPrecedingNode
+51 : notify
+51 : ["127.0.0.1", 3000] started
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : stabilize
+51 : checkPredecessor
+51 : closestPrecedingNode
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : stabilize
+51 : closestPrecedingNode
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : stabilize
+51 : closestPrecedingNode
+51 : notify
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : run loop...
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : stabilize
+51 : closestPrecedingNode
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : notify
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : run loop...
+51 : stabilize
+51 : findSuccessor
+51 : ["127.0.0.1", 3000] started
+51 : notify
+51 : checkPredecessor
+51 : closestPrecedingNode
+51 : fixFingers
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : run loop...
+735 : ["127.0.0.1", 3500] joined.
+735 : run loop...
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+735 : ["127.0.0.1", 3500] started
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : closestPrecedingNode
+51 : findSuccessor
+51 : closestPrecedingNode
+735 : checkPredecessor
+51 : run loop...
+51 : fixFingers
+51 : checkPredecessor
+735 : checkPredecessor
+735 : fixFingers
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : ["127.0.0.1", 3000] started
+51 : findSuccessor
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : run loop...
+735 : ["127.0.0.1", 3500] joined.
+51 : checkPredecessor
+51 : closestPrecedingNode
+735 : fixFingers
+735 : ["127.0.0.1", 3500] started
+735 : checkPredecessor
+735 : findSuccessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+735 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : fixFingers
+51 : checkPredecessor
+735 : checkPredecessor
+51 : findSuccessor
+51 : closestPrecedingNode
+735 : fixFingers
+735 : findSuccessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : fixFingers
+735 : fixFingers
+51 : findSuccessor
+735 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : fixFingers
+51 : fixFingers
+735 : findSuccessor
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+735 : closestPrecedingNode
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : fixFingers
+51 : run loop...
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : fixFingers
+51 : fixFingers
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+735 : checkPredecessor
+735 : checkPredecessor
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : run loop...
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : checkPredecessor
+51 : notify
+51 : closestPrecedingNode
+51 : stabilize
+51 : checkPredecessor
+51 : fixFingers
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : ["127.0.0.1", 3000] started
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : checkPredecessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : fixFingers
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : checkPredecessor
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : fixFingers
+51 : run loop...
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : fixFingers
+51 : checkPredecessor
+51 : findSuccessor
+51 : stabilize
+51 : closestPrecedingNode
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : stabilize
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : fixFingers
+51 : findSuccessor
+51 : notify
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : stabilize
+51 : notify
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : ["127.0.0.1", 3000] started
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : checkPredecessor
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+51 : notify
+51 : ["127.0.0.1", 3000] joined.
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : stabilize
+51 : notify
+51 : ["127.0.0.1", 3000] started
+51 : checkPredecessor
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : run loop...
+735 : ["127.0.0.1", 3500] joined.
+735 : run loop...
+735 : fixFingers
+735 : stabilize
+735 : findSuccessor
+735 : ["127.0.0.1", 3500] started
+51 : run loop...
+735 : checkPredecessor
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : closestPrecedingNode
+51 : checkPredecessor
+51 : stabilize
+735 : notify
+735 : run loop...
+735 : run loop...
+735 : fixFingers
+735 : findSuccessor
+735 : stabilize
+735 : checkPredecessor
+51 : run loop...
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+51 : stabilize
+735 : run loop...
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : findSuccessor
+735 : checkPredecessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : checkPredecessor
+735 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : checkPredecessor
+735 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : checkPredecessor
+735 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : checkPredecessor
+735 : findSuccessor
+735 : closestPrecedingNode
+51 : run loop...
+51 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : fixFingers
+735 : checkPredecessor
+51 : run loop...
+735 : findSuccessor
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
+51 : fixFingers
+51 : findSuccessor
+51 : checkPredecessor
+735 : run loop...
+51 : stabilize
+735 : run loop...
+735 : notify
+735 : run loop...
+735 : checkPredecessor
+735 : fixFingers
+735 : findSuccessor
+51 : run loop...
+735 : stabilize
+51 : run loop...
+51 : notify
+51 : run loop...
