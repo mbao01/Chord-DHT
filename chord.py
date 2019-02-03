@@ -26,7 +26,8 @@ class Node(object):
 		self._address = localAdress
 		self._threads = {}
 		self._finger  = {}
-		self._predecessor = None   
+		self._predecessor = None
+		self._databse = {}
 		for idx in range(NBITS):
 			self._finger[idx] = None
 		self.join(RemoteAddress)
@@ -189,16 +190,29 @@ class Node(object):
 			#print("Request ",request)
 			#print(addr[0],addr[1])
 
-			command = request.split(' ')[0]
+			msg = request.split()
 
 			#print("Command ",command)
-
+			command = msg[0]
+			key = msg[0]
+			value = " ".join(msg[2:])
 			# we take the command out
 			request = request[len(command) + 1:]
 
 			# defaul : "" = not respond anything
 			result = json.dumps("")
-			
+
+			if command == 'INSERT':
+				print(request)
+				print("PERFORM INSERT")
+				result = "INSERTED"
+
+			if command == 'LOOKUP':
+				print(request)
+				print("PERFORM LOOKUP")
+				# if found return value else NOT FOUND
+				result = "NOT FOUND"
+
 			if command == 'successor':
 				#time.sleep(SLEEP_TIME)
 				successor = self.successor()
