@@ -9,6 +9,7 @@ import threading
 from config import *
 from network import *
 from address import *
+
 def requires_connection(func):
 	def inner(self, *args, **kwargs):
 		self.open_connection()
