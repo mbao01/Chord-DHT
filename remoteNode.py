@@ -121,3 +121,15 @@ class RemoteNode(object):
 		#print("notify called")
 		#time.sleep(SLEEP_TIME)
 		self.send('notify %s %s' % (node._address.ip, node._address.port))
+
+	@requires_connection
+	def lookUpKey(self,key):
+		self.send('finalLookUpKey %s' % key)
+		response = self.recv()
+		return response
+
+	@requires_connection
+	def insertKeyVal(self,key,value):
+		self.send('finalInsertKeyVal '+key+' '+value)
+		response = self.recv()
+		return response

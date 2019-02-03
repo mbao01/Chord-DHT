@@ -12,6 +12,11 @@ from remoteNode import *
 
 system_running = True
 
+def hash_(str):
+	result = hashlib.md5(str.encode())
+	x = int(result.hexdigest(),16)
+	return x
+
 class BackGroundProcess(threading.Thread):
 	def __init__(self, obj, method):
 		threading.Thread.__init__(self)
@@ -27,7 +32,7 @@ class Node(object):
 		self._threads = {}
 		self._finger  = {}
 		self._predecessor = None
-		self._databse = {}
+		self._database = {}
 		for idx in range(NBITS):
 			self._finger[idx] = None
 		self.join(RemoteAddress)
@@ -43,6 +48,21 @@ class Node(object):
 		
 	def getIdentifier(self, offset = 0):
 		return (self._address.__hash__() + offset) % SIZE
+
+	def putKey(self,key,value):
+		self._database[key] = value
+
+	def getKeyHash(self,key):
+		return hash_(key) % SIZE
+
+	def getKey(self,key):
+		retval = self._database.get(key)
+		if retval:
+			return retval
+		else:
+			return '-1'
+						
+			
 
 	def __str__(self):
 		return "Node %s" % self._address
@@ -106,6 +126,10 @@ class Node(object):
 			
 			self._predecessor = remote
 
+			for key in self._database.keys(): # this key is plain word or string
+
+				if self.getKeyHash(key) <= remote.getIdentifier():
+					remote.insertKeyVal( key , self._database[key] )
 
 	def predecessor(self):
 		return self._predecessor
@@ -167,7 +191,13 @@ class Node(object):
 				return self._finger[idx]
 
 		return self
-			
+	
+	def lookUpKey(self,key):
+		ret = self.getKey(key)
+		return ret
+	def insertKeyVal(self,key,value):
+		self.putKey(key,value)	
+
 	def run(self):
 
 		self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -184,30 +214,75 @@ class Node(object):
 
 			request = read_from_socket(conn) # it might receive ping request 
 
+
 			if request:
 
 
 				msg = request.split()
 
-				command = msg[0]
-				key = msg[0]
-				value = " ".join(msg[2:])
-				# we take the command out
-				request = request[len(command) + 1:]
-
+				command = msg[0] # gets the instruction in english
+				request = request[len(command) + 1:] # get the arguiment for the instruction
+				
 				# defaul : "" = not respond anything
 				result = json.dumps("")
 
-				if command == 'INSERT':
+				if command == 'insertKeyVal':
+					key = msg[1]
+					value = " ".join(msg[2:]) # value could be of multiple words
 					print(request)
-					print("PERFORM INSERT")
+					
+					hashkey = self.getKeyHash(key)
+
+					print("Request for hashKey : ",hashkey," Found!")
+
+					node = self.findSuccessor(hashkey)
+
+					print("Destination Node addr : ",node._address," id: ",node.getIdentifier())
+
+					if node.getIdentifier() == self.getIdentifier():
+						self.insertKeyVal(key,value)
+					else:
+						node.insertKeyVal(key,value)
+
 					result = "INSERTED"
 
-				if command == 'LOOKUP':
+				if command == 'finalInsertKeyVal':
+					
+					key = msg[1]
+					value = " ".join(msg[2:]) # value could be of multiple words
 					print(request)
-					print("PERFORM LOOKUP")
-					# if found return value else NOT FOUND
-					result = "NOT FOUND"
+					
+					self.insertKeyVal(key,value)
+
+					result = "INSERTED"
+
+				if command == 'lookUpKey':
+					key = msg[1]
+					print(request)
+					
+					hashkey = self.getKeyHash(key)
+
+					print("Request for hashKey : ",hashkey," Found!")
+
+					node = self.findSuccessor(hashkey)
+					
+					print("Destination Node addr : ",node._address," id: ",node.getIdentifier())
+
+					
+					if node.getIdentifier() == self.getIdentifier():
+						response = self.lookUpKey(key)
+					else:
+						response = node.lookUpKey(key)
+
+					result = response
+
+
+				if command == 'finalLookUpKey':
+				
+					key = msg[1]
+					print(request)
+					response = self.lookUpKey(key)
+					result = response	
 
 				if command == 'successor':
 					successor = self.successor()
