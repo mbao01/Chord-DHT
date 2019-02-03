@@ -37,19 +37,17 @@ class ClientNode(object):
 		self._socket = None
 	
 	def printPromt(self):
-		print("Enter 1 to lookup")
-		print("Enter 2 to insert")
-		print("Enter 3 to Exit")
+		print("Enter 1 to Lookup")
+		print("Enter 2 to Insert")
+		print("Enter 3 to FingerTable")
+		#print("Enter 4 to ShowDB")
+		print("Enter 4 to Exit")
 
 	def send(self, msg):
-		#self._socket.sendall(msg + "\r\n")
 		send_to_socket(self._socket,msg)
 		self.last_msg_send_ = msg
 
 	def recv(self):
-		# print "send: %s <%s>" % (msg, self._address)
-		# we use to have more complicated logic here
-		# and we might have again, so I'm not getting rid of this yet
 		return read_from_socket(self._socket)
 	
 	@requires_connection
@@ -62,6 +60,11 @@ class ClientNode(object):
 		self.send('insertKeyVal '+key+' '+value)	
 		return self.recv()
 
+	@requires_connection
+	def queryFingerTable(self):
+		self.send('getFingerTable')
+		return self.recv()
+	
 	def start(self):
 		while self.client_running:
 			self.printPromt()
@@ -76,6 +79,7 @@ class ClientNode(object):
 				else:
 					print("Key : ",key," :: Value : ",returnvalue)
 
+				break
 			if choice=='2':
 				key = input("Input Key :") # TODO type check
 				value = input("Input Value :") # TODO type check
@@ -84,10 +88,15 @@ class ClientNode(object):
 					# key-value are always inserted !
 
 				print("Key : ",key," :: Value : ",value," inserted")
-				
-			if choice =='3':
 				break
 
+			if choice =='3':
+				response = self.queryFingerTable()
+				print(response)
+				break
+
+			if choice == '4':
+				self.client_running = False
 
 if __name__ == "__main__":
 	import sys

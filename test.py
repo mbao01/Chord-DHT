@@ -7,6 +7,7 @@ import socket
 import random
 import time
 import threading
+from datetime import datetime
 
 from remoteNode import *
 from address import *
@@ -82,6 +83,6 @@ if __name__ == "__main__":
 	# print(cc)
 
 	# print("xx : ",1," dlsknd",3)
+	print(type(datetime.now().strftime('%Y/%m/%d %H:%M:%S.%f')[:-3]))
 
-	a = A()
-	str(a.__class__)
+	#print(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])

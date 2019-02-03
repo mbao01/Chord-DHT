@@ -5,6 +5,7 @@ import socket
 import random
 import time
 import threading
+from datetime import datetime
 
 from address import *
 from network import *
@@ -141,7 +142,7 @@ class Node(object):
 			self.log("fixFingers")
 			nxt = nxt + 1
 			if nxt > NBITS:
-				self.printFingerable()
+				#self.printFingerable()
 				nxt = 1
 			self._finger[nxt - 1] = self.findSuccessor(self.getIdentifier(1<<(nxt - 1)))
 			
@@ -149,7 +150,7 @@ class Node(object):
 	def printFingerable(self):
 		for idx in range(NBITS):
 			if self._finger[idx] != None:
-				print(str(self.getIdentifier()) + " :: [" + self._finger[idx]._address.__str__() +" : "+ str(self._finger[idx].getIdentifier()) + "]")
+				self.log(str(self.getIdentifier()) + " :: [" + self._finger[idx]._address.__str__() +" : "+ str(self._finger[idx].getIdentifier()) + "]")
 			else:
 				print("None")
 		print("\n\n")
@@ -166,7 +167,8 @@ class Node(object):
 
 	def findSuccessor(self, id):
 		# check paper for implementation
-		self.log("findSuccessor")
+		timeStamp = datetime.now().strftime('%Y/%m/%d %H:%M:%S.%f')[:-3]
+		self.log("findSuccessor called at: Node[" + str(self.getIdentifier()) +"] for key: " + str(id) + " :: " + timeStamp)
 		if ( inrange(id,self.getIdentifier(),self.successor().getIdentifier()) and \
 			(self.getIdentifier() != self.successor().getIdentifier() ) and \
 			(id != self.getIdentifier()) ):
@@ -283,6 +285,10 @@ class Node(object):
 					print(request)
 					response = self.lookUpKey(key)
 					result = response	
+
+				if command == 'getFingerTable':
+					self.printFingerable() # prints at the log
+					result = "FingerTable printed at the logs"
 
 				if command == 'successor':
 					successor = self.successor()
