@@ -203,10 +203,17 @@ class Node(object):
         return self
 
     def lookUpKey(self, key):
+        print("LOOK UP for key:",key)
         ret = self.getKey(key)
+        if(ret!='-1'):
+            print("FOUND")
+        else:
+            print("NOT FOUND")
         return ret
 
     def insertKeyVal(self, key, value):
+        print("INSERT key:",key,":: value",value)
+        print("INSERTED")
         self.putKey(key, value)
 
     def run(self):
@@ -238,7 +245,7 @@ class Node(object):
                 if command == 'insertKeyVal':
                     key = msg[1]
                     value = " ".join(msg[2:])  # value could be of multiple words
-                    print(request)
+
 
                     hashkey = self.getKeyHash(key)
 
@@ -258,7 +265,7 @@ class Node(object):
                 if command == 'finalInsertKeyVal':
                     key = msg[1]
                     value = " ".join(msg[2:])  # value could be of multiple words
-                    print(request)
+
 
                     self.insertKeyVal(key, value)
 
@@ -266,7 +273,7 @@ class Node(object):
 
                 if command == 'lookUpKey':
                     key = msg[1]
-                    print(request)
+
 
                     hashkey = self.getKeyHash(key)
 
@@ -285,7 +292,6 @@ class Node(object):
 
                 if command == 'finalLookUpKey':
                     key = msg[1]
-                    print(request)
                     response = self.lookUpKey(key)
                     result = response
 
