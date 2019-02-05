@@ -1,3 +1,4 @@
+# https://github.com/gaston770/python-chord/blob/master/network.py
 # reads from socket until "\r\n"
 def read_from_socket(s):
 	result = ""
