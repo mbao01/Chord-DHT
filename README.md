@@ -14,7 +14,7 @@ Explnation:
 	- There are separate modules for network send/recv functionalities. We are using TCP, therefore to handle the byte oriented nature of TCP, network module's read and sends in loop untill all the bytes are written.
 
 	- RPC across different processes is simulated using message passing method to the server of each participating node.
-
+	- For hashing we have used md5. hashlib.md5(str.encode())
 Requirements : 
 
     System Requirement:
