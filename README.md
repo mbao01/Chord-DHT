@@ -1,7 +1,7 @@
 # CS620-A2
 Youtube link for demo :
 
-         - https://www.youtube.com/watch?v=iMEgMrZbH2A&feature=youtu.be
+         - [ScreenCast of demo](https://www.youtube.com/watch?v=iMEgMrZbH2A&feature=youtu.be)
 
 Distributed Dictionary Implementation using chord DHT
 
