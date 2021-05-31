@@ -1,15 +1,10 @@
-# CS620-A2
-Youtube link for demo :
+# Chord DHT
 
-[ScreenCast of demo](https://www.youtube.com/watch?v=iMEgMrZbH2A&feature=youtu.be)
+[Original Repo](https://github.com/ddeka0/Chord-DHT.git) by Abhishek Singh and Debashish Deka
 
 Distributed Dictionary Implementation using chord DHT
 
-Team members:
-	-Abhishek Singh 18305R010
-	-Debashish Deka 173050055
-
-Explnation:
+Explanation:
   
 	- There are separate modules for network send/recv functionalities. We are using TCP, therefore to handle the byte oriented nature of TCP, network module's read and sends in loop untill all the bytes are written.
 
@@ -25,7 +20,8 @@ Requirements :
         - python3-pip
         
 Steps to setup the project environment:
-       
-       - 1. Run script.py  : will launch 4 gnome terminals. (check the script.py for hardcoded server ports)
-       - 2. Run client.py ip port  : ip and port of any of DHT nodes.
-       - 3. Input word-meaning and ouput meaning for word using client console.
+
+       - 1. Create Root node, run `python3 chord.py <RootNodePort>` and keep terminal open
+       - 2. Add other nodes to Root node to form the chord. Run `python3 chord.py <NodePort> <RootNodePort>` in another terminal
+       - 3. Run `python3 client.py <NodeIP> <NodePort>`  : NodeIP default is 127.0.0.1 and NodePort of any DHT nodes (including root node).
+       - 4. Input word-meaning and output meaning for word using client console.

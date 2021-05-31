@@ -74,19 +74,21 @@ class ClientNode(object):
 	def start(self):
 		while self.client_running:
 			self.printPromt()
-			choice  = input("Enter your choice :")
-			if choice=='1':
+			choice = input("Enter your choice :")
+			choice = str(choice)
+
+			if choice == '1':
 				key = input("Input Key :") #TODO check type
-					
+
 				returnvalue = self.lookUpKey(key)
 				
 				if returnvalue == '-1':
-					print("Key :",key," not found !!")
+					print("Key :", key, " not found !!")
 				else:
-					print("Key : ",key," :: Value : ",returnvalue)
+					print("Key : ", key, " :: Value : ", returnvalue)
 
-			if choice=='2':
-				key = input("Input Key :") # TODO type check
+			if choice == '2':
+				key = str(input("Input Key :")) # TODO type check
 				value = input("Input Value :") # TODO type check
 
 				returnvalue = self.insertKeyVal(key,value)
@@ -94,7 +96,7 @@ class ClientNode(object):
 
 				print("Key : ",key," :: Value : ",value," inserted")
 				
-			if choice=='3':
+			if choice == '3':
 				f = open("dictionary.txt")
 				a = f.readline()
 
@@ -112,7 +114,7 @@ class ClientNode(object):
 				print(retval)
 
 
-			if choice =='5':
+			if choice == '5':
 				exit(0)
 
 
